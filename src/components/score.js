@@ -38,9 +38,36 @@ class Score extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.IncrementPoints}>Click to increment by 1</button>
-        <button onClick={this.DecreasePoints}>Click to decrease by 1</button>
         <div className="row">
+          <div className="col">
+            <div className="row">
+              <button type="button" className="btn-sm">
+                +
+              </button>
+              4
+              <button type="button" className="btn-sm">
+                -
+              </button>
+            </div>
+            <div className="row">
+              <button type="button" className="btn-sm">
+                +
+              </button>
+              3
+              <button type="button" className="btn-sm">
+                -
+              </button>
+            </div>
+            <div className="row">
+              <button type="button" className="btn-sm">
+                +
+              </button>
+              2
+              <button type="button" className="btn-sm">
+                -
+              </button>
+            </div>
+          </div>
           <div className="points col">{this.state.points}</div>
           <div className="advantages col">{this.state.advantages}</div>
           <div className="penalties col">{this.state.penalties}</div>

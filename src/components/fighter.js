@@ -6,10 +6,13 @@ class Fighter extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col">Fighter Name</div>
+          <div className="col">Fighter Team</div>
           <div className="col">
             <Score />
           </div>
+        </div>
+        <div className="row">
+          <div className="col">Fighter Name</div>
         </div>
       </div>
     );
