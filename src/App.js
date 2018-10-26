@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Fighter from "./components/figher";
+import Fighter from "./components/fighter";
 import Match from "./components/match";
 import "./App.css";
 
