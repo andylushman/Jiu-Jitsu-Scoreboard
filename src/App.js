@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import Fighter from "./components/figher";
 import "./App.css";
 
 class App extends Component {
   render() {
-    return <p>React</p>;
+    return <Fighter />;
   }
 }
 
