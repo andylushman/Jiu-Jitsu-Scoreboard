@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/score.css";
 
 class Score extends Component {
   constructor(props) {
