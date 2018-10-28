@@ -5,6 +5,7 @@
 
 .points {
   color: white;
+  font-size: 65px;
   background: linear-gradient(to bottom, #4286f4, #373b44);
 }
 
