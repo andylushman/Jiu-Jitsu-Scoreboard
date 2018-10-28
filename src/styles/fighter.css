@@ -1,0 +1,13 @@
+.fighter {
+  border-bottom: 5px solid black;
+}
+
+.fighter-name {
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.fighter-team {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}

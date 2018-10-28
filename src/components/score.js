@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "../styles/score.css";
+import React, { Component } from 'react';
+import '../styles/score.css';
 
 class Score extends Component {
   constructor(props) {
@@ -11,28 +11,44 @@ class Score extends Component {
     };
   }
 
-  IncrementPoints = () => {
-    this.setState({ points: this.state.points + 1 });
+  increasePointsByFour = () => {
+    this.setState({ points: this.state.points + 4 });
   };
 
-  DecreasePoints = () => {
-    this.setState({ points: this.state.points - 1 });
+  decreasePointsByFour = () => {
+    this.setState({ points: this.state.points - 4 });
   };
 
-  IncrementAdvantages = () => {
-    this.setState({ points: this.state.advantages + 1 });
+  increasePointsByThree = () => {
+    this.setState({ points: this.state.points + 3 });
   };
 
-  DecreaseAdvantages = () => {
-    this.setState({ points: this.state.advantages - 1 });
+  decreasePointsByThree = () => {
+    this.setState({ points: this.state.points - 3 });
   };
 
-  IncrementPenalties = () => {
-    this.setState({ points: this.state.advantages + 1 });
+  increasePointsByTwo = () => {
+    this.setState({ points: this.state.points + 2 });
   };
 
-  DecreasePenalties = () => {
-    this.setState({ points: this.state.advantages - 1 });
+  decreasePointsByTwo = () => {
+    this.setState({ points: this.state.points - 2 });
+  };
+
+  increaseAdvantages = () => {
+    this.setState({ advantages: this.state.advantages + 1 });
+  };
+
+  decreaseAdvantages = () => {
+    this.setState({ advantages: this.state.advantages - 1 });
+  };
+
+  increasePenalties = () => {
+    this.setState({ penalties: this.state.penalties + 1 });
+  };
+
+  decreasePenalties = () => {
+    this.setState({ penalties: this.state.penalties - 1 });
   };
 
   render() {
@@ -41,36 +57,78 @@ class Score extends Component {
         <div className="row">
           <div className="col">
             <div className="row">
-              <button type="button" className="btn-sm">
+              <button
+                onClick={this.increasePointsByFour}
+                type="button"
+                className="btn-sm"
+              >
                 +
               </button>
               4
-              <button type="button" className="btn-sm">
+              <button
+                onClick={this.decreasePointsByFour}
+                type="button"
+                className="btn-sm"
+              >
                 -
               </button>
             </div>
             <div className="row">
-              <button type="button" className="btn-sm">
+              <button
+                onClick={this.increasePointsByThree}
+                type="button"
+                className="btn-sm"
+              >
                 +
               </button>
               3
-              <button type="button" className="btn-sm">
+              <button
+                onClick={this.decreasePointsByThree}
+                type="button"
+                className="btn-sm"
+              >
                 -
               </button>
             </div>
             <div className="row">
-              <button type="button" className="btn-sm">
+              <button
+                onClick={this.increasePointsByTwo}
+                type="button"
+                className="btn-sm"
+              >
                 +
               </button>
               2
-              <button type="button" className="btn-sm">
+              <button
+                onClick={this.decreasePointsByTwo}
+                type="button"
+                className="btn-sm"
+              >
                 -
               </button>
             </div>
           </div>
-          <div className="points col">{this.state.points}</div>
-          <div className="advantages col">{this.state.advantages}</div>
-          <div className="penalties col">{this.state.penalties}</div>
+          <div className="col points score-button">{this.state.points}</div>
+
+          <div className="col">
+            <div className="col advantages score-button">
+              {this.state.advantages}
+            </div>
+            <div className="row plus-minus-buttons ">
+              <button onClick={this.increaseAdvantages}>+</button>
+              <button onClick={this.decreaseAdvantages}>-</button>
+            </div>
+          </div>
+
+          <div className="col">
+            <div className="col penalties score-button">
+              {this.state.penalties}
+            </div>
+            <div className="row plus-minus-buttons">
+              <button onClick={this.increasePenalties}>+</button>
+              <button onClick={this.decreasePenalties}>-</button>
+            </div>
+          </div>
         </div>
       </div>
     );

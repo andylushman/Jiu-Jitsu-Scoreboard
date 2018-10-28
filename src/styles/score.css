@@ -1,11 +1,23 @@
+.score-button {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+}
+
 .points {
-  background: blue;
+  color: white;
+  background: linear-gradient(to bottom, #4286f4, #373b44);
 }
 
 .advantages {
-  background: yellow;
+  background: linear-gradient(to bottom, #ffcc33, #ffb347);
 }
 
 .penalties {
-  background: red;
+  color: white;
+  background: linear-gradient(to bottom, #ed213a, #93291e);
+}
+
+.plus-minus-buttons {
+  display: block;
+  text-align: center;
 }
