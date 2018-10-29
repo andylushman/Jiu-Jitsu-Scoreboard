@@ -1,4 +1,5 @@
 .score-button {
+  text-align: center;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
   border-radius: 5px;
 }
@@ -9,11 +10,28 @@
   background: linear-gradient(to bottom, #4286f4, #373b44);
 }
 
-.advantages {
+.points-btn {
+  display: block;
+  text-align: right;
+}
+
+@media only screen and (max-width: 600px) {
+    .points-btn {
+      text-align: center;
+    }
+} 
+
+.advantages, .penalties {
+  padding: 0;
+}
+
+.advantages-number {
+  font-size: 50px;
   background: linear-gradient(to bottom, #ffcc33, #ffb347);
 }
 
-.penalties {
+.penalties-number {
+  font-size: 50px;
   color: white;
   background: linear-gradient(to bottom, #ed213a, #93291e);
 }

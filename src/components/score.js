@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import '../styles/score.css';
+import React, { Component } from "react";
+import "../styles/score.css";
 
 class Score extends Component {
   constructor(props) {
@@ -53,65 +53,69 @@ class Score extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="row">
           <div className="col">
             <div className="row">
-              <button
-                onClick={this.increasePointsByFour}
-                type="button"
-                className="btn-sm"
-              >
-                +
-              </button>
-              4
-              <button
-                onClick={this.decreasePointsByFour}
-                type="button"
-                className="btn-sm"
-              >
-                -
-              </button>
-            </div>
-            <div className="row">
-              <button
-                onClick={this.increasePointsByThree}
-                type="button"
-                className="btn-sm"
-              >
-                +
-              </button>
-              3
-              <button
-                onClick={this.decreasePointsByThree}
-                type="button"
-                className="btn-sm"
-              >
-                -
-              </button>
-            </div>
-            <div className="row">
-              <button
-                onClick={this.increasePointsByTwo}
-                type="button"
-                className="btn-sm"
-              >
-                +
-              </button>
-              2
-              <button
-                onClick={this.decreasePointsByTwo}
-                type="button"
-                className="btn-sm"
-              >
-                -
-              </button>
+              <div className="col-sm-6">
+                <div className="row points-btn">
+                  <button
+                    onClick={this.increasePointsByFour}
+                    type="button"
+                    className="btn-sm"
+                  >
+                    +
+                  </button>
+                  4
+                  <button
+                    onClick={this.decreasePointsByFour}
+                    type="button"
+                    className="btn-sm"
+                  >
+                    -
+                  </button>
+                </div>
+                <div className="row points-btn">
+                  <button
+                    onClick={this.increasePointsByThree}
+                    type="button"
+                    className="btn-sm"
+                  >
+                    +
+                  </button>
+                  3
+                  <button
+                    onClick={this.decreasePointsByThree}
+                    type="button"
+                    className="btn-sm"
+                  >
+                    -
+                  </button>
+                </div>
+                <div className="row points-btn">
+                  <button
+                    onClick={this.increasePointsByTwo}
+                    type="button"
+                    className="btn-sm"
+                  >
+                    +
+                  </button>
+                  2
+                  <button
+                    onClick={this.decreasePointsByTwo}
+                    type="button"
+                    className="btn-sm"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+              <div className="col points score-button">{this.state.points}</div>
             </div>
           </div>
-          <div className="col points score-button">{this.state.points}</div>
 
-          <div className="col">
-            <div className="col advantages score-button">
+          <div className="col-sm-3 advantages">
+            <div className="col advantages-number score-button">
               {this.state.advantages}
             </div>
             <div className="row plus-minus-buttons ">
@@ -120,8 +124,8 @@ class Score extends Component {
             </div>
           </div>
 
-          <div className="col">
-            <div className="col penalties score-button">
+          <div className="col-sm-3 penalties">
+            <div className="col penalties-number score-button">
               {this.state.penalties}
             </div>
             <div className="row plus-minus-buttons">
