@@ -9,13 +9,16 @@ class Match extends Component {
         <div className="row">
           <div className="col-sm-2 match-location-stats">
             <div className="row font-tan">Mat</div>
-            <div className="row font-white">3</div>
+            <div className="row font-white">{this.props.matNumber}</div>
             <div className="row font-tan">Fight</div>
-            <div className="row font-white">52</div>
+            <div className="row font-white">{this.props.fightNumber}</div>
           </div>
           <div className="col-sm-4 match-details">
-            <div className="row font-white">Adult/Male/Black/Middle</div>
-            <div className="row match-title">FINAL</div>
+            <div className="row font-white">
+              {this.props.ageCatageory}/{this.props.maleFemale}/
+              {this.props.belt}/{this.props.weight}
+            </div>
+            <div className="row match-title">{this.props.round}</div>
           </div>
           <div className="col-sm-6">
             <Clock />

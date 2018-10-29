@@ -1,0 +1,46 @@
+
+.controls input, .age-catagory, .male-female, .belt, .weight-catagory {
+  margin-left: 5px;
+  width: 175px;
+}
+
+.dropbtn {
+  color: white;
+  margin-left: 15px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  background: #162A48;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-title {
+  padding: 5px;
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+}
+
+.dropdown-content {
+  color: white;
+  margin-left: 15px;
+  padding: 10px;
+  text-align: right;
+  position: absolute;
+  background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover, .dropdown-content {
+  display: block;
+}
