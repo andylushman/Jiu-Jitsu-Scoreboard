@@ -1,8 +1,20 @@
 import React, { Component } from "react";
-import Clock from "./clock";
+import Timer from "./timer";
 import "../styles/match.css";
 
 class Match extends Component {
+  timeRemainingInSeconds() {
+    return 10;
+  }
+
+  onEveryMinuteUpdateTimeElapsed() {
+    console.log("Min");
+  }
+
+  onCompletion() {
+    console.log("Finished");
+  }
+
   render() {
     return (
       <div className="container-fluid match">
@@ -21,7 +33,11 @@ class Match extends Component {
             <div className="row match-title">{this.props.round}</div>
           </div>
           <div className="col-sm-6">
-            <Clock />
+            <Timer
+              timeRemainingInSeconds={this.timeRemainingInSeconds}
+              onEveryMinute={this.onEveryMinuteUpdateTimeElapsed}
+              onCompletion={this.onCompletion}
+            />
           </div>
         </div>
       </div>

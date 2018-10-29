@@ -229,12 +229,6 @@ class Controls extends Component {
                       }
                     />
                   </div>
-                  <button
-                    className="close-btn"
-                    // onClick={this.setState({ showMenu: false })}
-                  >
-                    Done
-                  </button>
                 </div>
               </form>
             </div>

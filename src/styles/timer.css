@@ -1,4 +1,4 @@
-.clock {
+.timer {
   font-size: 12vw;
   color: #67E76A;
   text-align: center;
@@ -6,7 +6,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .clock {
+  .timer {
     font-size: 20vw;
   }
 } 
