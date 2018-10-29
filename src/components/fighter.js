@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Score from './score';
-import '../styles/fighter.css';
+import React, { Component } from "react";
+import Score from "./score";
+import "../styles/fighter.css";
 
 class Fighter extends Component {
   render() {

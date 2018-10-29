@@ -1,0 +1,41 @@
+.match {
+  background: black;
+}
+
+@media only screen and (min-width: 600px) {
+  .match {
+    padding-left: 30px;
+  }
+} 
+
+.match-title {
+  font-size: 40px;
+  color: #E5D88E;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+}
+
+.match-location-stats {
+  background: #162A48;
+  height: 100%;
+  margin: auto;
+}
+
+.match-details{
+  margin: auto;
+}
+
+.font-white {
+  color: white;
+}
+
+.font-tan {
+  color: #E5D88E;
+}
+
+.font-tan, .font-white {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}

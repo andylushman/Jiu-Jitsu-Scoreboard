@@ -53,7 +53,7 @@ class Score extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container score">
         <div className="row">
           <div className="col">
             <div className="row">

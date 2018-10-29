@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import Fighter from "./components/fighter";
-import Match from "./components/match";
+import Controls from "./components/controls";
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Fighter />
-        <Match />
+        <Controls />
       </div>
     );
   }

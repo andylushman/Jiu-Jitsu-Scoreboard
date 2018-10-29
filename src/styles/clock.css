@@ -1,0 +1,12 @@
+.clock {
+  font-size: 12vw;
+  color: #67E76A;
+  text-align: center;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+  .clock {
+    font-size: 20vw;
+  }
+} 

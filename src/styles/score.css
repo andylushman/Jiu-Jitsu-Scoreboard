@@ -1,5 +1,10 @@
+.score {
+  padding-top: 10px;
+}
+
 .score-button {
   text-align: center;
+  margin-right: 5px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
   border-radius: 5px;
 }
@@ -22,6 +27,7 @@
 } 
 
 .advantages, .penalties {
+  margin-right: 5px;
   padding: 0;
 }
 
