@@ -7,7 +7,7 @@ class Fighter extends Component {
     return (
       <div className="container-fluid fighter">
         <div className="row">
-          <div className="col fighter-name">Fighter Name</div>
+          <div className="col fighter-name">{this.props.fighterOneName}</div>
           <div className="col">
             <Score />
           </div>

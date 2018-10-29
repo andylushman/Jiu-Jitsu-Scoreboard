@@ -13,11 +13,22 @@ class Controls extends Component {
     };
   }
 
+  onInputChange(fighterOne) {
+    this.setState({ fighterOne });
+  }
+
   render() {
     return (
       <div>
-        <div>Controls</div>
-        <Fighter />
+        <div className="controls">
+          <div className="search-bar">
+            <input
+              value={this.state.term}
+              onChange={event => this.onInputChange(event.target.value)}
+            />
+          </div>
+        </div>
+        <Fighter fighterOneName={this.state.fighterOne} />
         <Fighter />
         <Match />
       </div>
