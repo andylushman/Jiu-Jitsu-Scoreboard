@@ -94,7 +94,7 @@ class Controls extends Component {
       <div>
         <div>
           <button className="dropbtn" onClick={this.showMenu}>
-            Input Fields
+            Config
           </button>
 
           {this.state.showMenu ? (
