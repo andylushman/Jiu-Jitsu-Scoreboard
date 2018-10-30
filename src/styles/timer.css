@@ -1,12 +1,39 @@
 .timer {
+  text-align: center;
+  color: #E5D88E;
+}
+
+button {
+  color: black;
+  background-color: gray;
+}
+
+.timer-clock {
   font-size: 12vw;
   color: #67E76A;
-  text-align: center;
   font-weight: 600;
 }
 
 @media only screen and (max-width: 600px) {
-  .timer {
+  .timer-clock {
     font-size: 20vw;
   }
 } 
+
+.timer-min {
+  text-align: right;
+  padding-right: 0;
+}
+
+.timer-min-btn {
+  text-align: center;
+}
+
+.timer-sec{
+  text-align: left;
+  padding-left: 0;
+}
+
+.timer-sec-btn {
+  text-align: center;
+}
