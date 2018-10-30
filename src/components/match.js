@@ -3,6 +3,37 @@ import Timer from "./timer";
 import "../styles/match.css";
 
 class Match extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      minutesRemaining: 1,
+      secondsRemaining: 1,
+      totalTime: 0
+    };
+
+    this.increaseMin = this.increaseMin.bind(this);
+    this.decreaseMin = this.decreaseMin.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({
+      totalTime: this.state.minutesRemaining + this.state.secondsRemaining
+    });
+  }
+
+  increaseMin() {
+    this.setState({ minutesRemaining: this.state.minutesRemaining + 1 });
+    console.log(this.state.minutesRemaining);
+  }
+
+  decreaseMin() {
+    if (this.state.minutesRemaining <= 0) {
+      return;
+    }
+    this.setState({ minutesRemaining: this.state.minutesRemaining - 1 });
+    console.log(this.state.minutesRemaining);
+  }
+
   render() {
     return (
       <div className="container-fluid match">
@@ -21,11 +52,9 @@ class Match extends Component {
             <div className="row match-title">{this.props.round}</div>
           </div>
           <div className="col-sm-6">
-            <Timer
-              timeRemainingInSeconds={this.timeRemainingInSeconds}
-              onEveryMinute={this.onEveryMinuteUpdateTimeElapsed}
-              onCompletion={this.onCompletion}
-            />
+            <button onClick={this.increaseMin}>+</button>
+            <button onClick={this.decreaseMin}>-</button>
+            <Timer secondsRemaining={this.state.totalTime} />
           </div>
         </div>
       </div>
