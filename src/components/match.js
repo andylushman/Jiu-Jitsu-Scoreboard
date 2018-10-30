@@ -3,18 +3,6 @@ import Timer from "./timer";
 import "../styles/match.css";
 
 class Match extends Component {
-  timeRemainingInSeconds() {
-    return 10;
-  }
-
-  onEveryMinuteUpdateTimeElapsed() {
-    console.log("Min");
-  }
-
-  onCompletion() {
-    console.log("Finished");
-  }
-
   render() {
     return (
       <div className="container-fluid match">
