@@ -96,8 +96,8 @@ export class Timer extends Component {
     });
   }
 
-  tick() {
-    this.setState({
+  async tick() {
+    await this.setState({
       totalsecondsOnTimer: this.state.totalsecondsOnTimer - 1,
       secondsOnTimer: this.state.secondsOnTimer - 1
     });
