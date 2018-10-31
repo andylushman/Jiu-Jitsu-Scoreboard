@@ -57,7 +57,7 @@ class Score extends Component {
         <div className="row">
           <div className="col">
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-6">
                 <div className="row points-btn">
                   <button
                     onClick={this.increasePointsByFour}
@@ -114,7 +114,7 @@ class Score extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 advantages">
+          <div className="col-3 advantages">
             <div className="col advantages-number score-button">
               {this.state.advantages}
             </div>
@@ -124,7 +124,7 @@ class Score extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3 penalties">
+          <div className="col-3 col-sm-3 penalties">
             <div className="col penalties-number score-button">
               {this.state.penalties}
             </div>
