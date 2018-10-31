@@ -18,7 +18,8 @@ class Controls extends Component {
       belt: "White",
       weight: "Rooster",
       round: "FINAL",
-      showMenu: false
+      showMenu: false,
+      repeatRound: false
     };
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
@@ -87,6 +88,10 @@ class Controls extends Component {
   setFightRound(round) {
     const roundUpperCase = round.toUpperCase();
     this.setState({ round: roundUpperCase });
+  }
+
+  toggleRoundTimer(button) {
+    console.log(button.target.checked);
   }
 
   render() {
@@ -229,6 +234,30 @@ class Controls extends Component {
                       }
                     />
                   </div>
+                  <div className="dropdown-title">--Timer Info--</div>
+                  <div>
+                    Repeat Rounds:
+                    <div className="repeat-round">
+                      On
+                      <input
+                        className="repeat-round-radio-btn"
+                        type="radio"
+                        name="repeatRoundOn"
+                        value={"On"}
+                        checked={this.state.repeatRound}
+                        onChange={this.toggleRoundTimer}
+                      />
+                      Off
+                      <input
+                        className="repeat-round-radio-btn"
+                        type="radio"
+                        name="repeatRoundOff"
+                        value={"Off"}
+                        checked={!this.state.repeatRound}
+                        onChange={this.toggleRoundTimer}
+                      />
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -251,6 +280,7 @@ class Controls extends Component {
           belt={this.state.belt}
           weight={this.state.weight}
           round={this.state.round}
+          repeatRound={this.state.repeatRound}
         />
       </div>
     );

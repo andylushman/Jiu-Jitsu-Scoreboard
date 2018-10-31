@@ -21,7 +21,7 @@ class Match extends Component {
             <div className="row match-title">{this.props.round}</div>
           </div>
           <div className="col-sm-6">
-            <Timer />
+            <Timer repeatRound={this.props.repeatRound} />
           </div>
         </div>
       </div>

@@ -44,3 +44,12 @@
 .dropdown:hover, .dropdown-content {
   display: block;
 }
+
+.repeat-round{
+  display: inline;
+  margin-left: 30px;
+}
+
+.repeat-round-radio-btn {
+  width: 46px !important;
+}

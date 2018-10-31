@@ -21,7 +21,7 @@ export class Timer extends Component {
     this.stopTimer = this.stopTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
     this.increaseMin = this.increaseMin.bind(this);
-    this.decreaseMin = this.decreaseMin.bind(this);
+    // this.decreaseMin = this.decreaseMin.bind(this);
     this.increaseSec = this.increaseSec.bind(this);
     this.decreaseSec = this.decreaseSec.bind(this);
   }
@@ -31,7 +31,8 @@ export class Timer extends Component {
       totalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
       originalTotalSecondsRemaining:
-        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
+      repeatRound: this.props.repeatRound
     });
   }
 
@@ -48,7 +49,7 @@ export class Timer extends Component {
     });
   }
 
-  async decreaseMin() {
+  decreaseMin = async () => {
     if (this.state.minutesOnTimer <= 0) {
       return;
     }
@@ -64,7 +65,7 @@ export class Timer extends Component {
       originalTotalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
-  }
+  };
 
   async increaseSec() {
     await this.setState({
