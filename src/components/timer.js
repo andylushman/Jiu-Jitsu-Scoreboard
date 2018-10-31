@@ -5,10 +5,10 @@ export class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      originalMinutesOnTimer: 0,
+      originalMinutesOnTimer: 10,
       originalSecondsOnTimer: 0,
       originalTotalSecondsRemaining: 0,
-      minutesOnTimer: 0,
+      minutesOnTimer: 10,
       secondsOnTimer: 0,
       totalSecondsRemaining: 0
     };
@@ -21,6 +21,15 @@ export class Timer extends Component {
     this.decreaseMin = this.decreaseMin.bind(this);
     this.increaseSec = this.increaseSec.bind(this);
     this.decreaseSec = this.decreaseSec.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      totalSecondsRemaining:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
+      originalTotalSecondsRemaining:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
+    });
   }
 
   async increaseMin() {
