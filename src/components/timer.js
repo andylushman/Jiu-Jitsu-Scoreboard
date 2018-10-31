@@ -10,7 +10,10 @@ export class Timer extends Component {
       originalTotalSecondsRemaining: 0,
       minutesOnTimer: 10,
       secondsOnTimer: 0,
-      totalSecondsRemaining: 0
+      totalSecondsRemaining: 0,
+      repeatRound: true,
+      breakIntervalSeconds: 10,
+      breakIntervalOn: false
     };
 
     this.tick = this.tick.bind(this);
@@ -43,7 +46,6 @@ export class Timer extends Component {
       originalTotalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
-    console.log(this.state.totalSecondsRemaining);
   }
 
   async decreaseMin() {
@@ -110,6 +112,7 @@ export class Timer extends Component {
 
   stopTimer() {
     clearInterval(this.interval);
+    clearInterval(this.breakIntervalTimer);
   }
 
   resetTimer() {
@@ -126,10 +129,10 @@ export class Timer extends Component {
       totalSecondsRemaining: this.state.totalSecondsRemaining - 1,
       secondsOnTimer: this.state.secondsOnTimer - 1
     });
-    console.log(this.state.totalSecondsRemaining);
 
-    if (this.state.totalSecondsRemaining <= 0) {
+    if (this.state.totalSecondsRemaining < 0) {
       clearInterval(this.interval);
+      this.breakInterval();
     }
 
     if (this.state.secondsOnTimer < 0 && this.state.minutesOnTimer > 0) {
@@ -138,6 +141,30 @@ export class Timer extends Component {
         secondsOnTimer: 59
       });
     }
+  }
+
+  async breakInterval() {
+    if (
+      this.state.repeatRound === true &&
+      this.state.breakIntervalOn === false
+    ) {
+      await this.setState({
+        breakIntervalOn: true,
+        totalSecondsRemaining: this.state.breakIntervalSeconds,
+        secondsOnTimer: this.state.breakIntervalSeconds
+      });
+      this.breakIntervalTimer = setInterval(this.tick, 1000);
+      return;
+    }
+    clearInterval(this.breakIntervalTimer);
+    await this.setState({
+      totalSecondsRemaining: this.state.originalTotalSecondsRemaining,
+      minutesOnTimer: this.state.originalMinutesOnTimer,
+      secondsOnTimer: this.state.originalSecondsOnTimer,
+      breakIntervalOn: false
+    });
+    this.resetTimer();
+    this.startTimer();
   }
 
   render() {
