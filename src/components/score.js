@@ -124,7 +124,7 @@ class Score extends Component {
             </div>
           </div>
 
-          <div className="col-3 col-sm-3 penalties">
+          <div className="col-3 penalties">
             <div className="col penalties-number score-button">
               {this.state.penalties}
             </div>
