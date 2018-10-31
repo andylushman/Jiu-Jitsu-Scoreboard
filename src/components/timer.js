@@ -5,9 +5,9 @@ export class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutesRemaining: 1,
-      secondsRemaining: 13,
-      totalTime: 0
+      minutesOnTimer: 10,
+      secondsOnTimer: 0,
+      totalsecondsOnTimer: 0
     };
 
     this.tick = this.tick.bind(this);
@@ -22,47 +22,60 @@ export class Timer extends Component {
 
   async increaseMin() {
     await this.setState({
-      minutesRemaining: this.state.minutesRemaining + 1
+      minutesOnTimer: this.state.minutesOnTimer + 1
     });
     this.setState({
-      totalTime: this.state.minutesRemaining + this.state.secondsRemaining
+      totalsecondsOnTimer:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
+    console.log(this.state.totalsecondsOnTimer);
   }
 
   async decreaseMin() {
-    if (this.state.minutesRemaining <= 0) {
+    if (this.state.minutesOnTimer <= 0) {
       return;
     }
 
     await this.setState({
-      minutesRemaining: this.state.minutesRemaining - 1
+      minutesOnTimer: this.state.minutesOnTimer - 1
     });
 
     this.setState({
-      totalTime: this.state.minutesRemaining + this.state.secondsRemaining
+      totalsecondsOnTimer:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
   }
 
   async increaseSec() {
     await this.setState({
-      secondsRemaining: this.state.secondsRemaining + 1
+      secondsOnTimer: this.state.secondsOnTimer + 1
     });
+    if (this.state.secondsOnTimer > 59) {
+      await this.setState({
+        secondsOnTimer: 0
+      });
+    }
+
     this.setState({
-      totalTime: this.state.minutesRemaining + this.state.secondsRemaining
+      totalsecondsOnTimer:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
   }
 
   async decreaseSec() {
-    if (this.state.secondsRemaining <= 0) {
-      return;
+    if (this.state.secondsOnTimer <= 0) {
+      await this.setState({
+        secondsOnTimer: 60
+      });
     }
 
     await this.setState({
-      secondsRemaining: this.state.secondsRemaining - 1
+      secondsOnTimer: this.state.secondsOnTimer - 1
     });
 
     this.setState({
-      totalTime: this.state.minutesRemaining + this.state.secondsRemaining
+      totalsecondsOnTimer:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
   }
 
@@ -78,13 +91,19 @@ export class Timer extends Component {
   resetTimer() {
     clearInterval(this.interval);
     this.setState({
-      totalTime: this.state.minutesRemaining + this.state.secondsRemaining
+      totalsecondsOnTimer:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
   }
 
   tick() {
-    this.setState({ totalTime: this.state.totalTime - 1 });
-    if (this.state.totalTime <= 0) {
+    this.setState({
+      totalsecondsOnTimer: this.state.totalsecondsOnTimer - 1,
+      secondsOnTimer: this.state.secondsOnTimer - 1
+    });
+    console.log(this.state.totalsecondsOnTimer);
+
+    if (this.state.totalsecondsOnTimer <= 0) {
       clearInterval(this.interval);
     }
   }
@@ -99,7 +118,7 @@ export class Timer extends Component {
               <button onClick={this.decreaseMin}>-</button>
               <div className="col">Min</div>
             </div>
-            <div className="timer-clock">{this.state.minutesRemaining}:</div>
+            <div className="timer-clock">{this.state.minutesOnTimer}:</div>
           </div>
           <div className="col timer-sec">
             <div className="timer-sec-btn">
@@ -107,7 +126,11 @@ export class Timer extends Component {
               <button onClick={this.decreaseSec}>-</button>
               <div className="col">Sec</div>
             </div>
-            <div className="timer-clock">{this.state.secondsRemaining}</div>
+            <div className="timer-clock">
+              {this.state.secondsOnTimer < 10
+                ? `0${this.state.secondsOnTimer}`
+                : this.state.secondsOnTimer}
+            </div>
           </div>
         </div>
         <button onClick={this.startTimer}>Start</button>
