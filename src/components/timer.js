@@ -5,9 +5,12 @@ export class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutesOnTimer: 10,
+      originalMinutesOnTimer: 0,
+      originalSecondsOnTimer: 0,
+      originalTotalSecondsRemaining: 0,
+      minutesOnTimer: 0,
       secondsOnTimer: 0,
-      totalsecondsOnTimer: 0
+      totalSecondsRemaining: 0
     };
 
     this.tick = this.tick.bind(this);
@@ -22,13 +25,16 @@ export class Timer extends Component {
 
   async increaseMin() {
     await this.setState({
-      minutesOnTimer: this.state.minutesOnTimer + 1
+      minutesOnTimer: this.state.minutesOnTimer + 1,
+      originalMinutesOnTimer: this.state.originalMinutesOnTimer + 1
     });
     this.setState({
-      totalsecondsOnTimer:
+      totalSecondsRemaining:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
+      originalTotalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
-    console.log(this.state.totalsecondsOnTimer);
+    console.log(this.state.totalSecondsRemaining);
   }
 
   async decreaseMin() {
@@ -37,18 +43,22 @@ export class Timer extends Component {
     }
 
     await this.setState({
-      minutesOnTimer: this.state.minutesOnTimer - 1
+      minutesOnTimer: this.state.minutesOnTimer - 1,
+      originalMinutesOnTimer: this.state.originalMinutesOnTimer - 1
     });
 
     this.setState({
-      totalsecondsOnTimer:
+      totalSecondsRemaining:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
+      originalTotalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
   }
 
   async increaseSec() {
     await this.setState({
-      secondsOnTimer: this.state.secondsOnTimer + 1
+      secondsOnTimer: this.state.secondsOnTimer + 1,
+      originalSecondsOnTimer: this.state.originalSecondsOnTimer + 1
     });
     if (this.state.secondsOnTimer > 59) {
       await this.setState({
@@ -57,7 +67,9 @@ export class Timer extends Component {
     }
 
     this.setState({
-      totalsecondsOnTimer:
+      totalSecondsRemaining:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
+      originalTotalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
   }
@@ -70,11 +82,14 @@ export class Timer extends Component {
     }
 
     await this.setState({
-      secondsOnTimer: this.state.secondsOnTimer - 1
+      secondsOnTimer: this.state.secondsOnTimer - 1,
+      originalSecondsOnTimer: this.state.originalSecondsOnTimer - 1
     });
 
     this.setState({
-      totalsecondsOnTimer:
+      totalSecondsRemaining:
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
+      originalTotalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
   }
@@ -91,20 +106,28 @@ export class Timer extends Component {
   resetTimer() {
     clearInterval(this.interval);
     this.setState({
-      totalsecondsOnTimer:
-        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
+      totalSecondsRemaining: this.state.originalTotalSecondsRemaining,
+      minutesOnTimer: this.state.originalMinutesOnTimer,
+      secondsOnTimer: this.state.originalSecondsOnTimer
     });
   }
 
   async tick() {
     await this.setState({
-      totalsecondsOnTimer: this.state.totalsecondsOnTimer - 1,
+      totalSecondsRemaining: this.state.totalSecondsRemaining - 1,
       secondsOnTimer: this.state.secondsOnTimer - 1
     });
-    console.log(this.state.totalsecondsOnTimer);
+    console.log(this.state.totalSecondsRemaining);
 
-    if (this.state.totalsecondsOnTimer <= 0) {
+    if (this.state.totalSecondsRemaining <= 0) {
       clearInterval(this.interval);
+    }
+
+    if (this.state.secondsOnTimer < 0 && this.state.minutesOnTimer > 0) {
+      await this.setState({
+        minutesOnTimer: this.state.minutesOnTimer - 1,
+        secondsOnTimer: 59
+      });
     }
   }
 
