@@ -23,6 +23,8 @@ class Controls extends Component {
     };
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+    this.toggleRoundTimerOn = this.toggleRoundTimerOn.bind(this);
+    this.toggleRoundTimerOff = this.toggleRoundTimerOff.bind(this);
   }
 
   showMenu(event) {
@@ -90,8 +92,16 @@ class Controls extends Component {
     this.setState({ round: roundUpperCase });
   }
 
-  toggleRoundTimer(button) {
-    console.log(button.target.checked);
+  toggleRoundTimerOn() {
+    this.setState({
+      repeatRound: true
+    });
+  }
+
+  toggleRoundTimerOff() {
+    this.setState({
+      repeatRound: false
+    });
   }
 
   render() {
@@ -245,7 +255,7 @@ class Controls extends Component {
                         name="repeatRoundOn"
                         value={"On"}
                         checked={this.state.repeatRound}
-                        onChange={this.toggleRoundTimer}
+                        onChange={this.toggleRoundTimerOn}
                       />
                       Off
                       <input
@@ -254,7 +264,7 @@ class Controls extends Component {
                         name="repeatRoundOff"
                         value={"Off"}
                         checked={!this.state.repeatRound}
-                        onChange={this.toggleRoundTimer}
+                        onChange={this.toggleRoundTimerOff}
                       />
                     </div>
                   </div>

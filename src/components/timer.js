@@ -31,9 +31,14 @@ export class Timer extends Component {
       totalSecondsRemaining:
         this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
       originalTotalSecondsRemaining:
-        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer,
-      repeatRound: this.props.repeatRound
+        this.state.minutesOnTimer * 60 + this.state.secondsOnTimer
     });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.repeatRound !== this.props.repeatRound) {
+      this.setState({ repeatRound: nextProps.repeatRound });
+    }
   }
 
   async increaseMin() {
@@ -136,7 +141,9 @@ export class Timer extends Component {
 
     if (this.state.totalSecondsRemaining <= 0) {
       clearInterval(this.interval);
-      if (this.state.repeatRound) {
+      console.log(this.state.repeatRound);
+
+      if (this.state.repeatRound === true) {
         this.breakInterval();
       }
     }
