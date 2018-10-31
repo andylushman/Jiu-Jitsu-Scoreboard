@@ -11,7 +11,7 @@ export class Timer extends Component {
       minutesOnTimer: 10,
       secondsOnTimer: 0,
       totalSecondsRemaining: 0,
-      repeatRound: true,
+      repeatRound: false,
       breakIntervalSeconds: 30,
       breakIntervalOn: false
     };
@@ -107,6 +107,7 @@ export class Timer extends Component {
 
   startTimer() {
     clearInterval(this.interval);
+    clearInterval(this.breakIntervalTimer);
     this.interval = setInterval(this.tick, 1000);
   }
 
@@ -117,7 +118,9 @@ export class Timer extends Component {
 
   resetTimer() {
     clearInterval(this.interval);
+    clearInterval(this.breakIntervalTimer);
     this.setState({
+      breakIntervalOn: false,
       totalSecondsRemaining: this.state.originalTotalSecondsRemaining,
       minutesOnTimer: this.state.originalMinutesOnTimer,
       secondsOnTimer: this.state.originalSecondsOnTimer
@@ -130,9 +133,11 @@ export class Timer extends Component {
       secondsOnTimer: this.state.secondsOnTimer - 1
     });
 
-    if (this.state.totalSecondsRemaining < 0) {
+    if (this.state.totalSecondsRemaining <= 0) {
       clearInterval(this.interval);
-      this.breakInterval();
+      if (this.state.repeatRound) {
+        this.breakInterval();
+      }
     }
 
     if (this.state.secondsOnTimer < 0 && this.state.minutesOnTimer > 0) {
@@ -144,10 +149,7 @@ export class Timer extends Component {
   }
 
   async breakInterval() {
-    if (
-      this.state.repeatRound === true &&
-      this.state.breakIntervalOn === false
-    ) {
+    if (this.state.breakIntervalOn === false) {
       await this.setState({
         breakIntervalOn: true,
         totalSecondsRemaining: this.state.breakIntervalSeconds,
