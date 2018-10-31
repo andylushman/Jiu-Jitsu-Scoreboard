@@ -19,12 +19,20 @@ class Controls extends Component {
       weight: "Rooster",
       round: "FINAL",
       showMenu: false,
-      repeatRound: false
+      repeatRound: false,
+      breakIntervalMinutes: 0,
+      breakIntervalSeconds: 0
     };
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.toggleRoundTimerOn = this.toggleRoundTimerOn.bind(this);
     this.toggleRoundTimerOff = this.toggleRoundTimerOff.bind(this);
+    this.changeBreakIntervalMinutes = this.changeBreakIntervalMinutes.bind(
+      this
+    );
+    this.changeBreakIntervalSeconds = this.changeBreakIntervalSeconds.bind(
+      this
+    );
   }
 
   showMenu(event) {
@@ -101,6 +109,18 @@ class Controls extends Component {
   toggleRoundTimerOff() {
     this.setState({
       repeatRound: false
+    });
+  }
+
+  changeBreakIntervalMinutes(event) {
+    this.setState({
+      breakIntervalMinutes: event.target.value
+    });
+  }
+
+  changeBreakIntervalSeconds(event) {
+    this.setState({
+      breakIntervalSeconds: event.target.value
     });
   }
 
@@ -268,6 +288,28 @@ class Controls extends Component {
                       />
                     </div>
                   </div>
+                  <div>
+                    Interval Time:
+                    <div className="repeat-round-time">
+                      Min
+                      <input
+                        min="0"
+                        className="repeat-round-time-field"
+                        type="number"
+                        placeholder={0}
+                        onChange={this.changeBreakIntervalMinutes}
+                      />
+                      Sec
+                      <input
+                        min="0"
+                        max="59"
+                        className="repeat-round-time-field"
+                        type="number"
+                        placeholder={30}
+                        onChange={this.changeBreakIntervalSeconds}
+                      />
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -291,6 +333,8 @@ class Controls extends Component {
           weight={this.state.weight}
           round={this.state.round}
           repeatRound={this.state.repeatRound}
+          breakIntervalMinutes={this.state.breakIntervalMinutes}
+          breakIntervalSeconds={this.state.breakIntervalSeconds}
         />
       </div>
     );
