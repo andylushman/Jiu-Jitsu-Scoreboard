@@ -164,9 +164,9 @@ class Controls extends Component {
                         this.setState({ belt: event.target.value })
                       }
                     >
-                      <option value="white">White</option>
-                      <option value="blue">Blue</option>
-                      <option value="purple">Purple</option>
+                      <option value="White">White</option>
+                      <option value="Blue">Blue</option>
+                      <option value="Purple">Purple</option>
                       <option value="Brown">Brown</option>
                       <option value="Black">Black</option>
                     </select>
