@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Jiu-Jitsu-Scoreboard/precache-manifest.a44e245b26e9dfa4102375edd809be38.js"
+  "/Jiu-Jitsu-Scoreboard/precache-manifest.21b3ce67a27eff87ad39e82e7f2d515c.js"
 );
 
 workbox.clientsClaim();

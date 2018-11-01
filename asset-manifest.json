@@ -1,7 +1,7 @@
 {
   "main.css": "/Jiu-Jitsu-Scoreboard/static/css/main.ca0f378a.chunk.css",
-  "main.js": "/Jiu-Jitsu-Scoreboard/static/js/main.0cdbc3f8.chunk.js",
-  "main.js.map": "/Jiu-Jitsu-Scoreboard/static/js/main.0cdbc3f8.chunk.js.map",
+  "main.js": "/Jiu-Jitsu-Scoreboard/static/js/main.eb257b89.chunk.js",
+  "main.js.map": "/Jiu-Jitsu-Scoreboard/static/js/main.eb257b89.chunk.js.map",
   "static/js/1.5144c14f.chunk.js": "/Jiu-Jitsu-Scoreboard/static/js/1.5144c14f.chunk.js",
   "static/js/1.5144c14f.chunk.js.map": "/Jiu-Jitsu-Scoreboard/static/js/1.5144c14f.chunk.js.map",
   "runtime~main.js": "/Jiu-Jitsu-Scoreboard/static/js/runtime~main.996d8ac4.js",
@@ -9,6 +9,6 @@
   "static/media/gear-icon.png": "/Jiu-Jitsu-Scoreboard/static/media/gear-icon.4ff1f710.png",
   "static/css/main.ca0f378a.chunk.css.map": "/Jiu-Jitsu-Scoreboard/static/css/main.ca0f378a.chunk.css.map",
   "index.html": "/Jiu-Jitsu-Scoreboard/index.html",
-  "precache-manifest.a44e245b26e9dfa4102375edd809be38.js": "/Jiu-Jitsu-Scoreboard/precache-manifest.a44e245b26e9dfa4102375edd809be38.js",
+  "precache-manifest.21b3ce67a27eff87ad39e82e7f2d515c.js": "/Jiu-Jitsu-Scoreboard/precache-manifest.21b3ce67a27eff87ad39e82e7f2d515c.js",
   "service-worker.js": "/Jiu-Jitsu-Scoreboard/service-worker.js"
 }
