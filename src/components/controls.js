@@ -145,12 +145,14 @@ class Controls extends Component {
                   <div>
                     Fighter One:
                     <input
+                      value={this.state.fighterOne}
                       onChange={event => this.setFighterOne(event.target.value)}
                     />
                   </div>
                   <div>
                     Fighter One Team:
                     <input
+                      value={this.state.fighterOneTeamName}
                       onChange={event =>
                         this.setFighterOneTeam(event.target.value)
                       }
@@ -159,12 +161,14 @@ class Controls extends Component {
                   <div>
                     Fighter Two:
                     <input
+                      value={this.state.fighterTwo}
                       onChange={event => this.setFighterTwo(event.target.value)}
                     />
                   </div>
                   <div>
                     Fighter Two Team:
                     <input
+                      value={this.state.fighterTwoTeamName}
                       onChange={event =>
                         this.setFighterTwoTeam(event.target.value)
                       }
@@ -305,7 +309,6 @@ class Controls extends Component {
                         max="59"
                         className="repeat-round-time-field"
                         type="number"
-                        placeholder={30}
                         onChange={this.changeBreakIntervalSeconds}
                       />
                     </div>
