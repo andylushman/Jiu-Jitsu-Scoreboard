@@ -253,7 +253,7 @@ class Controls extends Component {
                     </div>
                   </div>
                   <div>
-                    Interval Time:
+                    Break Interval Time:
                     <div className="repeat-round-time">
                       Min
                       <input
