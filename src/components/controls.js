@@ -51,55 +51,6 @@ class Controls extends Component {
     }
   }
 
-  setFighterOne(fighterOne) {
-    this.setState({ fighterOne });
-  }
-
-  setFighterTwo(fighterTwo) {
-    this.setState({ fighterTwo });
-  }
-
-  setFighterOneTeam(fighterOneTeamName) {
-    this.setState({ fighterOneTeamName });
-  }
-
-  setFighterTwo(fighterTwo) {
-    this.setState({ fighterTwo });
-  }
-
-  setFighterTwoTeam(fighterTwoTeamName) {
-    this.setState({ fighterTwoTeamName });
-  }
-
-  setMatNumber(matNumber) {
-    this.setState({ matNumber });
-  }
-
-  setFightNumber(fightNumber) {
-    this.setState({ fightNumber });
-  }
-
-  setFightAge(ageCatageory) {
-    this.setState({ ageCatageory });
-  }
-
-  setFightSex(maleFemale) {
-    this.setState({ maleFemale });
-  }
-
-  setFightBelt(belt) {
-    this.setState({ belt });
-  }
-
-  setFightWeight(weight) {
-    this.setState({ weight });
-  }
-
-  setFightRound(round) {
-    const roundUpperCase = round.toUpperCase();
-    this.setState({ round: roundUpperCase });
-  }
-
   toggleRoundTimerOn() {
     this.setState({
       repeatRound: true
@@ -146,7 +97,11 @@ class Controls extends Component {
                     Fighter One:
                     <input
                       value={this.state.fighterOne}
-                      onChange={event => this.setFighterOne(event.target.value)}
+                      onChange={event =>
+                        this.setState({
+                          fighterOne: event.target.value
+                        })
+                      }
                     />
                   </div>
                   <div>
@@ -154,7 +109,9 @@ class Controls extends Component {
                     <input
                       value={this.state.fighterOneTeamName}
                       onChange={event =>
-                        this.setFighterOneTeam(event.target.value)
+                        this.setState({
+                          fighterOneTeamName: event.target.value
+                        })
                       }
                     />
                   </div>
@@ -162,7 +119,11 @@ class Controls extends Component {
                     Fighter Two:
                     <input
                       value={this.state.fighterTwo}
-                      onChange={event => this.setFighterTwo(event.target.value)}
+                      onChange={event =>
+                        this.setState({
+                          fighterTwo: event.target.value
+                        })
+                      }
                     />
                   </div>
                   <div>
@@ -170,7 +131,9 @@ class Controls extends Component {
                     <input
                       value={this.state.fighterTwoTeamName}
                       onChange={event =>
-                        this.setFighterTwoTeam(event.target.value)
+                        this.setState({
+                          fighterTwoTeamName: event.target.value
+                        })
                       }
                     />
                   </div>
@@ -178,14 +141,14 @@ class Controls extends Component {
                   <div>
                     Age Catagory:
                     <select
+                      value={this.state.ageCatageory}
                       name="age catagory"
                       className="age-catagory"
                       onChange={event =>
-                        this.setFightAge(
-                          event.target.selectedOptions[0].innerHTML
-                        )
+                        this.setState({ ageCatageory: event.target.value })
                       }
                     >
+                      )}>
                       <option value="adult">Adult</option>
                       <option value="master1">Master 1</option>
                       <option value="master2">Master 2</option>
@@ -198,12 +161,11 @@ class Controls extends Component {
                   <div>
                     Male/Female:
                     <select
+                      value={this.state.maleFemale}
                       name="male-female"
                       className="male-female"
                       onChange={event =>
-                        this.setFightSex(
-                          event.target.selectedOptions[0].innerHTML
-                        )
+                        this.setState({ maleFemale: event.target.value })
                       }
                     >
                       <option value="male">Male</option>
@@ -213,12 +175,11 @@ class Controls extends Component {
                   <div>
                     Belt:
                     <select
+                      value={this.state.belt}
                       name="belt"
                       className="belt"
                       onChange={event =>
-                        this.setFightBelt(
-                          event.target.selectedOptions[0].innerHTML
-                        )
+                        this.setState({ belt: event.target.value })
                       }
                     >
                       <option value="white">White</option>
@@ -231,12 +192,11 @@ class Controls extends Component {
                   <div>
                     Weight:
                     <select
+                      value={this.state.weight}
                       name="weight catagory"
                       className="weight-catagory"
                       onChange={event =>
-                        this.setFightWeight(
-                          event.target.selectedOptions[0].innerHTML
-                        )
+                        this.setState({ weight: event.target.value })
                       }
                     >
                       <option value="rooster">Rooster</option>
@@ -251,20 +211,30 @@ class Controls extends Component {
                   <div>
                     Round:
                     <input
-                      onChange={event => this.setFightRound(event.target.value)}
+                      className="controls-round-title"
+                      value={this.state.round}
+                      onChange={event =>
+                        this.setState({ round: event.target.value })
+                      }
                     />
                   </div>
                   <div>
                     Mat #:
                     <input
-                      onChange={event => this.setMatNumber(event.target.value)}
+                      value={this.state.matNumber}
+                      onChange={event =>
+                        this.setState({
+                          matNumber: event.target.value
+                        })
+                      }
                     />
                   </div>
                   <div>
                     Fight #:
                     <input
+                      value={this.state.fightNumber}
                       onChange={event =>
-                        this.setFightNumber(event.target.value)
+                        this.setState({ fightNumber: event.target.value })
                       }
                     />
                   </div>
@@ -297,19 +267,28 @@ class Controls extends Component {
                     <div className="repeat-round-time">
                       Min
                       <input
+                        value={this.state.breakIntervalMinutes}
                         min="0"
                         className="repeat-round-time-field"
                         type="number"
-                        placeholder={0}
-                        onChange={this.changeBreakIntervalMinutes}
+                        onChange={event =>
+                          this.setState({
+                            breakIntervalMinutes: event.target.value
+                          })
+                        }
                       />
                       Sec
                       <input
+                        value={this.state.breakIntervalSeconds}
                         min="0"
                         max="59"
                         className="repeat-round-time-field"
                         type="number"
-                        onChange={this.changeBreakIntervalSeconds}
+                        onChange={event =>
+                          this.setState({
+                            breakIntervalSeconds: event.target.value
+                          })
+                        }
                       />
                     </div>
                   </div>

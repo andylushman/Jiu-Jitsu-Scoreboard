@@ -13,7 +13,7 @@ export class Timer extends Component {
       totalSecondsRemaining: 0,
       repeatRound: false,
       breakIntervalMinutes: 0,
-      breakIntervalSeconds: 30,
+      breakIntervalSeconds: 0,
       breakIntervalOn: false
     };
 
