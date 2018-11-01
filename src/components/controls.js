@@ -27,12 +27,6 @@ class Controls extends Component {
     this.closeMenu = this.closeMenu.bind(this);
     this.toggleRoundTimerOn = this.toggleRoundTimerOn.bind(this);
     this.toggleRoundTimerOff = this.toggleRoundTimerOff.bind(this);
-    this.changeBreakIntervalMinutes = this.changeBreakIntervalMinutes.bind(
-      this
-    );
-    this.changeBreakIntervalSeconds = this.changeBreakIntervalSeconds.bind(
-      this
-    );
   }
 
   showMenu(event) {
@@ -60,18 +54,6 @@ class Controls extends Component {
   toggleRoundTimerOff() {
     this.setState({
       repeatRound: false
-    });
-  }
-
-  changeBreakIntervalMinutes(event) {
-    this.setState({
-      breakIntervalMinutes: event.target.value
-    });
-  }
-
-  changeBreakIntervalSeconds(event) {
-    this.setState({
-      breakIntervalSeconds: event.target.value
     });
   }
 
@@ -293,6 +275,9 @@ class Controls extends Component {
                     </div>
                   </div>
                 </div>
+                <button className="controls-done-btn" onClick={this.closeMenu}>
+                  Done
+                </button>
               </form>
             </div>
           ) : null}
