@@ -38,7 +38,10 @@ class Controls extends Component {
   }
 
   closeMenu(event) {
-    if (!this.dropdownMenu.contains(event.target)) {
+    if (
+      !this.dropdownMenu.contains(event.target) ||
+      event.target.className === "controls-done-btn"
+    ) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener("click", this.closeMenu);
       });
@@ -62,9 +65,14 @@ class Controls extends Component {
       <div>
         <div>
           <button className="dropbtn" onClick={this.showMenu}>
-            Config
+            <span>
+              <img
+                className="controls-gear-icon"
+                src={require("../images/gear-icon.png")}
+              />
+            </span>
+            <span>Config</span>
           </button>
-
           {this.state.showMenu ? (
             <div
               className="menu dropdown-content"
@@ -131,13 +139,13 @@ class Controls extends Component {
                       }
                     >
                       )}>
-                      <option value="adult">Adult</option>
-                      <option value="master1">Master 1</option>
-                      <option value="master2">Master 2</option>
-                      <option value="master3">Master 3</option>
-                      <option value="master4">Master 4</option>
-                      <option value="master5">Master 5</option>
-                      <option value="master6">Master 6</option>
+                      <option value="Adult">Adult</option>
+                      <option value="Master 1">Master 1</option>
+                      <option value="Master 2">Master 2</option>
+                      <option value="Master 3">Master 3</option>
+                      <option value="Master 4">Master 4</option>
+                      <option value="Master 5">Master 5</option>
+                      <option value="Master 6">Master 6</option>
                     </select>
                   </div>
                   <div>
@@ -150,8 +158,8 @@ class Controls extends Component {
                         this.setState({ maleFemale: event.target.value })
                       }
                     >
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
                     </select>
                   </div>
                   <div>
@@ -181,13 +189,13 @@ class Controls extends Component {
                         this.setState({ weight: event.target.value })
                       }
                     >
-                      <option value="rooster">Rooster</option>
-                      <option value="light-feather">Light Feather</option>
-                      <option value="light">Light</option>
-                      <option value="middle">Middle</option>
-                      <option value="medium-heavy">Medium Heavy</option>
-                      <option value="heavy">Heavy</option>
-                      <option value="super-heavy">Super Heavy</option>
+                      <option value="Rooster">Rooster</option>
+                      <option value="Light-Feather">Light Feather</option>
+                      <option value="Light">Light</option>
+                      <option value="Middle">Middle</option>
+                      <option value="Medium-Heavy">Medium Heavy</option>
+                      <option value="Heavy">Heavy</option>
+                      <option value="Super-Heavy">Super Heavy</option>
                     </select>
                   </div>
                   <div>
