@@ -105,6 +105,12 @@ export class Timer extends Component {
       });
     }
 
+    if (this.state.originalSecondsOnTimer <= 0) {
+      await this.setState({
+        originalSecondsOnTimer: 60
+      });
+    }
+
     await this.setState({
       secondsOnTimer: this.state.secondsOnTimer - 1,
       originalSecondsOnTimer: this.state.originalSecondsOnTimer - 1
